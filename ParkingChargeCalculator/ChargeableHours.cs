@@ -9,9 +9,6 @@ namespace ParkingChargeCalculator
         public int EndHour { get; set; }
         public int EndMinute { get; set; }
 
-        public DateTime StartTime { get; set; }
-        public DateTime EndTime { get; set; }
-
         public ChargeableHours(int startHour, int startMinute, int endHour, int endMinute)
         {
             StartHour = startHour;
