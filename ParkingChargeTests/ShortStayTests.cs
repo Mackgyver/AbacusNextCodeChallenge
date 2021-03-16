@@ -12,38 +12,6 @@ namespace ParkingChargeTests
         {
         }
 
-        //[TestCase(7, 59, ExpectedResult = true)]
-        //[TestCase(8, 0, ExpectedResult = false)]
-        //public bool IsBeforeStartTime_SameDate(int hour, int minute)
-        //{
-        //    var visit = new ShortVisit(
-        //        new DateTime(2021, 3, 14, hour, minute, 59),
-        //        new DateTime(2021, 3, 15, 0, 0, 0));
-
-        //    return visit.IsBeforeStartTime(visit.Start);
-        //}
-
-        //[TestCase(17, 59, ExpectedResult = false)]
-        //[TestCase(18, 0, ExpectedResult = true)]
-        //public bool IsAfterEndTime_SameDate(int hour, int minute)
-        //{
-        //    var visit = new ShortVisit(
-        //        new DateTime(2021, 3, 14, 8, 0, 0),
-        //        new DateTime(2021, 3, 15, hour, minute, 0));
-
-        //    return visit.IsAfterEndTime(visit.End);
-        //}
-
-        //[Test]
-        //public void GetStartOfDay_BeforeStart_is8()
-        //{
-        //    var visit = new ShortVisit(
-        //        new DateTime(2021, 3, 14, 1, 0, 0),
-        //        new DateTime(2021, 3, 15, 0, 0, 0));
-
-        //    Assert.AreEqual(visit.GetStartOfChargeableDay(visit.Start), new DateTime(2021, 3, 14, 8, 0, 0));
-        //}
-
         [Test]
         public void CalculateDuration_OutwithChargePeriod_EqualsZero()
         {

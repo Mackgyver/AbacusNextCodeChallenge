@@ -15,7 +15,8 @@ namespace ParkingChargeTests
         [TestCase(2021, 3, 15, 0, 0, 0, 2021, 3, 15, 7, 59, 59, Description = "WeekDay Morning")]
         [TestCase(2021, 3, 16, 18, 0, 0, 2021, 3, 16, 0, 0, 0, Description = "WeekDay Evening")]
         [TestCase(2021, 3, 12, 18, 0, 1, 2021, 3, 15, 7, 59, 59, Description = "All Weekend")]
-        public void CalculateDuration_NonChargeable_ReturnsZero(
+        [TestCase(2021, 3, 12, 13, 0, 0, 2021, 3, 12, 13, 0, 0, Description = "Same CheckIn / Out time")]
+        public void CalculateDuration_Tests_(
             int startYear, int startMonth, int startDay, int startHour, int startMinute, int startSecond,
             int endYear, int endMonth, int endDay, int endHour, int endMinute, int endSecond)
         {
@@ -26,23 +27,23 @@ namespace ParkingChargeTests
         }
 
         [Test]
-        public void CalculateDuration_SameDateAndTime_Equals0()
-        {
-            var visit = new LongVisit(
-                new DateTime(2021, 3, 14, 0, 0, 0),
-                new DateTime(2021, 3, 14, 0, 0, 0));
-
-            Assert.AreEqual(visit.CalculateDuration(), 0);
-        }
-
-        [Test]
-        public void CalculateDuration_OneAndAHalfDays_Equals2()
+        public void CalculateDuration_OneAndAHalfDays_TwoDayDuration()
         {
             var visit = new LongVisit(
                 new DateTime(2021, 3, 14, 0, 0, 0),
                 new DateTime(2021, 3, 15, 12, 0, 0));
 
             Assert.AreEqual(visit.CalculateDuration(), 2);
+        }
+
+        [Test]
+        public void CalculateCharge_OneAndAHalfDays_TwoDayDuration()
+        {
+            var visit = new LongVisit(
+                new DateTime(2021, 3, 14, 0, 0, 0),
+                new DateTime(2021, 3, 15, 12, 0, 0));
+
+            Assert.AreEqual(visit.CalculateCharge(), 15.00);
         }
 
         [Test]
